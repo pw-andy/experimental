@@ -1,0 +1,11 @@
+Example of interaction between the fileupload component and Backbone.js
+Requires node.js
+
+Use index.js to start the server:
+$ node index.js
+
+NOTES:
+There doesn't appear to be any simple way to get fileupoad to upload images via backbone. Instead, the fileupload component communicates directly with the server when uploading, but updates the backbone model appropriately once the images have been uploaded. It should be possible to do any other operations through backbone, and I've provided a simple example in the form of the delete functionality.
+
+-Image uploading is faked (images aren't actually uploaded), but it's sufficient to demonstrate the point
+-No communication is implemented between backbone and the server as it's not relevant to the point.
