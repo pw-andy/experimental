@@ -1,0 +1,143 @@
+<html>
+	<head>
+		<title>Collapsible tabs demo</title>
+		<link rel="stylesheet" type="text/css" href="jquery-ui-1.8.7.custom.css" />
+	</head>
+	<body>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
+		<script>
+			$(function() {
+				$("#tabs").tabs();
+
+				$("#minimize").toggle(
+					function() {
+						$("#tabs .ui-tabs-panel").animate({
+							height: 0,
+							paddingTop: 0,
+							paddingBottom: 0
+						}, 1000);
+					},
+					function() {
+						$("#tabs .ui-tabs-panel").animate({
+							height: 110,
+							paddingTop: 17,
+							paddingBottom: 17
+						}, 1000);
+					}
+				);
+			});
+		</script>
+		<style>
+			body {
+				padding: 0;
+				margin: 0;
+			}
+			#tabs {
+				bottom: 0px;
+				overflow: hidden;
+			}
+			#logo {
+				width: 100%;
+				background: grey;
+				height: 100px;
+			}
+			#topmenu {
+				width: 100%;
+				background: yellow;
+			}
+			#sidebar {
+				background: blue;
+				width: 200px;
+			}
+			#main {
+				background: white;
+			}
+			#footer {
+				bottom: 0;
+				height: 20px;
+				background: green;
+			}
+			#content tr {
+				vertical-align: top;
+				max-height: 600px;
+			}
+			#minimize {
+				position: absolute;
+				top: 0;
+				right: 0;
+				margin-right: 10px;
+			}
+			#text {
+				overflow: auto;
+			}
+		</style>
+
+		<div id="logo">LOGO</div>
+		<div id="topmenu">Item1 | Item2 | Item3</div>
+		<table id="content" border="0" width="100%" height="100%" cellspacing="0" cellpadding="0">
+			<tbody>
+				<tr>
+					<td id="sidebar">Item1<br />Item2<br />Item2</td>
+					<td id="main">
+						<div id="maincontent">
+							<div id="text">
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec dolor justo. Mauris ac tortor urna. Aliquam faucibus, nibh vel venenatis tincidunt, odio dolor ultricies sem, auctor convallis neque dui vel augue. Nam sem sem, rhoncus et gravida non, rutrum in lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nunc a sapien nisi. Pellentesque mattis nisi nec augue tempus a fermentum orci rhoncus. Mauris turpis arcu, vulputate sed mattis vel, sodales porttitor mauris. Morbi aliquam convallis mauris pretium suscipit. Quisque in pellentesque libero. Sed rhoncus hendrerit dictum.
+
+								Suspendisse purus tellus, pharetra nec fringilla blandit, sagittis in est. Quisque varius, nunc sed feugiat interdum, dolor purus lacinia mauris, vitae aliquet nisl purus a lectus. Ut eleifend velit quis sapien semper quis lobortis enim adipiscing. Fusce in sapien purus, et condimentum ipsum. Duis at augue leo. Maecenas lobortis augue in mauris viverra bibendum varius diam ultrices. Aliquam vel mauris ante, quis consequat ligula. Nunc in laoreet purus.
+
+								Nulla facilisi. Vestibulum vitae tellus in quam semper sollicitudin ac in dolor. Quisque arcu lacus, euismod nec viverra eget, condimentum ut nisi. Curabitur eget lectus velit, vitae hendrerit orci. Pellentesque aliquam enim sed nisi euismod varius. Duis lobortis egestas molestie. Proin eget leo tortor. Curabitur luctus pellentesque lectus, quis sollicitudin ligula lobortis nec. Ut lacus ipsum, condimentum et imperdiet et, lobortis et massa. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+								Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus quis dolor eu lectus posuere bibendum. Cras massa nunc, interdum vitae elementum in, pellentesque ut purus. Donec a interdum orci. Phasellus in aliquet eros. In ac purus sed justo egestas vestibulum. Vivamus non erat tellus, vel pellentesque purus. Ut vulputate venenatis gravida. Aliquam molestie risus et eros ultricies consectetur. Nulla tellus turpis, varius in ultricies et, semper non est. In hac habitasse platea dictumst.
+
+								Duis imperdiet sagittis est nec posuere. Aenean ac bibendum mi. Ut viverra ultrices erat, at dignissim tellus pellentesque id. In pellentesque scelerisque nunc sed adipiscing. Nam viverra, tortor et porttitor porttitor, dui urna volutpat nisi, ut porttitor lectus elit eget mauris. Donec id tortor non nibh pulvinar mattis auctor quis lacus. Donec quam sapien, scelerisque ut interdum vel, laoreet non purus. Etiam molestie vehicula mauris, eget mattis purus ullamcorper nec. Phasellus sit amet posuere sem. Phasellus nec ullamcorper diam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec dolor justo. Mauris ac tortor urna. Aliquam faucibus, nibh vel venenatis tincidunt, odio dolor ultricies sem, auctor convallis neque dui vel augue. Nam sem sem, rhoncus et gravida non, rutrum in lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nunc a sapien nisi. Pellentesque mattis nisi nec augue tempus a fermentum orci rhoncus. Mauris turpis arcu, vulputate sed mattis vel, sodales porttitor mauris. Morbi aliquam convallis mauris pretium suscipit. Quisque in pellentesque libero. Sed rhoncus hendrerit dictum.
+
+								Suspendisse purus tellus, pharetra nec fringilla blandit, sagittis in est. Quisque varius, nunc sed feugiat interdum, dolor purus lacinia mauris, vitae aliquet nisl purus a lectus. Ut eleifend velit quis sapien semper quis lobortis enim adipiscing. Fusce in sapien purus, et condimentum ipsum. Duis at augue leo. Maecenas lobortis augue in mauris viverra bibendum varius diam ultrices. Aliquam vel mauris ante, quis consequat ligula. Nunc in laoreet purus.
+
+								Nulla facilisi. Vestibulum vitae tellus in quam semper sollicitudin ac in dolor. Quisque arcu lacus, euismod nec viverra eget, condimentum ut nisi. Curabitur eget lectus velit, vitae hendrerit orci. Pellentesque aliquam enim sed nisi euismod varius. Duis lobortis egestas molestie. Proin eget leo tortor. Curabitur luctus pellentesque lectus, quis sollicitudin ligula lobortis nec. Ut lacus ipsum, condimentum et imperdiet et, lobortis et massa. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+								Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus quis dolor eu lectus posuere bibendum. Cras massa nunc, interdum vitae elementum in, pellentesque ut purus. Donec a interdum orci. Phasellus in aliquet eros. In ac purus sed justo egestas vestibulum. Vivamus non erat tellus, vel pellentesque purus. Ut vulputate venenatis gravida. Aliquam molestie risus et eros ultricies consectetur. Nulla tellus turpis, varius in ultricies et, semper non est. In hac habitasse platea dictumst.
+
+								Duis imperdiet sagittis est nec posuere. Aenean ac bibendum mi. Ut viverra ultrices erat, at dignissim tellus pellentesque id. In pellentesque scelerisque nunc sed adipiscing. Nam viverra, tortor et porttitor porttitor, dui urna volutpat nisi, ut porttitor lectus elit eget mauris. Donec id tortor non nibh pulvinar mattis auctor quis lacus. Donec quam sapien, scelerisque ut interdum vel, laoreet non purus. Etiam molestie vehicula mauris, eget mattis purus ullamcorper nec. Phasellus sit amet posuere sem. Phasellus nec ullamcorper diam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec dolor justo. Mauris ac tortor urna. Aliquam faucibus, nibh vel venenatis tincidunt, odio dolor ultricies sem, auctor convallis neque dui vel augue. Nam sem sem, rhoncus et gravida non, rutrum in lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nunc a sapien nisi. Pellentesque mattis nisi nec augue tempus a fermentum orci rhoncus. Mauris turpis arcu, vulputate sed mattis vel, sodales porttitor mauris. Morbi aliquam convallis mauris pretium suscipit. Quisque in pellentesque libero. Sed rhoncus hendrerit dictum.
+
+								Suspendisse purus tellus, pharetra nec fringilla blandit, sagittis in est. Quisque varius, nunc sed feugiat interdum, dolor purus lacinia mauris, vitae aliquet nisl purus a lectus. Ut eleifend velit quis sapien semper quis lobortis enim adipiscing. Fusce in sapien purus, et condimentum ipsum. Duis at augue leo. Maecenas lobortis augue in mauris viverra bibendum varius diam ultrices. Aliquam vel mauris ante, quis consequat ligula. Nunc in laoreet purus.
+
+								Nulla facilisi. Vestibulum vitae tellus in quam semper sollicitudin ac in dolor. Quisque arcu lacus, euismod nec viverra eget, condimentum ut nisi. Curabitur eget lectus velit, vitae hendrerit orci. Pellentesque aliquam enim sed nisi euismod varius. Duis lobortis egestas molestie. Proin eget leo tortor. Curabitur luctus pellentesque lectus, quis sollicitudin ligula lobortis nec. Ut lacus ipsum, condimentum et imperdiet et, lobortis et massa. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+								Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus quis dolor eu lectus posuere bibendum. Cras massa nunc, interdum vitae elementum in, pellentesque ut purus. Donec a interdum orci. Phasellus in aliquet eros. In ac purus sed justo egestas vestibulum. Vivamus non erat tellus, vel pellentesque purus. Ut vulputate venenatis gravida. Aliquam molestie risus et eros ultricies consectetur. Nulla tellus turpis, varius in ultricies et, semper non est. In hac habitasse platea dictumst.
+
+								Duis imperdiet sagittis est nec posuere. Aenean ac bibendum mi. Ut viverra ultrices erat, at dignissim tellus pellentesque id. In pellentesque scelerisque nunc sed adipiscing. Nam viverra, tortor et porttitor porttitor, dui urna volutpat nisi, ut porttitor lectus elit eget mauris. Donec id tortor non nibh pulvinar mattis auctor quis lacus. Donec quam sapien, scelerisque ut interdum vel, laoreet non purus. Etiam molestie vehicula mauris, eget mattis purus ullamcorper nec. Phasellus sit amet posuere sem. Phasellus nec ullamcorper diam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+							</div>
+							<div id="tabs">
+								<ul>
+									<li><a href="#photos">Photos</a></li>
+									<li><a href="#wo">Work Orders</a></li>
+									<li><a href="#conversation">Conversations</a></li>
+									<li><a href="#log">Log</a></li>
+								</ul>
+								<div id="photos">
+									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec dolor justo. Mauris ac tortor urna. Aliquam faucibus, nibh vel venenatis tincidunt, odio dolor ultricies sem, auctor convallis neque dui vel augue. Nam sem sem, rhoncus et gravida non, rutrum in lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nunc a sapien nisi. Pellentesque mattis nisi nec augue tempus a fermentum orci rhoncus. Mauris turpis arcu, vulputate sed mattis vel, sodales porttitor mauris. Morbi aliquam convallis mauris pretium suscipit. Quisque in pellentesque libero. Sed rhoncus hendrerit dictum.
+								</div>
+								<div id="wo">
+									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec dolor justo. Mauris ac tortor urna. Aliquam faucibus, nibh vel venenatis tincidunt, odio dolor ultricies sem, auctor convallis neque dui vel augue. Nam sem sem, rhoncus et gravida non, rutrum in lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nunc a sapien nisi. Pellentesque mattis nisi nec augue tempus a fermentum orci rhoncus. Mauris turpis arcu, vulputate sed mattis vel, sodales porttitor mauris. Morbi aliquam convallis mauris pretium suscipit. Quisque in pellentesque libero. Sed rhoncus hendrerit dictum.
+								</div>
+								<div id="conversation">
+									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec dolor justo. Mauris ac tortor urna. Aliquam faucibus, nibh vel venenatis tincidunt, odio dolor ultricies sem, auctor convallis neque dui vel augue. Nam sem sem, rhoncus et gravida non, rutrum in lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nunc a sapien nisi. Pellentesque mattis nisi nec augue tempus a fermentum orci rhoncus. Mauris turpis arcu, vulputate sed mattis vel, sodales porttitor mauris. Morbi aliquam convallis mauris pretium suscipit. Quisque in pellentesque libero. Sed rhoncus hendrerit dictum.
+								</div>
+								<div id="log">
+									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec dolor justo. Mauris ac tortor urna. Aliquam faucibus, nibh vel venenatis tincidunt, odio dolor ultricies sem, auctor convallis neque dui vel augue. Nam sem sem, rhoncus et gravida non, rutrum in lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nunc a sapien nisi. Pellentesque mattis nisi nec augue tempus a fermentum orci rhoncus. Mauris turpis arcu, vulputate sed mattis vel, sodales porttitor mauris. Morbi aliquam convallis mauris pretium suscipit. Quisque in pellentesque libero. Sed rhoncus hendrerit dictum.
+								</div>
+								<div id="minimize"><a href="#minimize">Minimize</a></div>
+							</div>
+						</div>
+						<div id="footer" style="clear: both">Copyright 1601 John Smith</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</body>
+</html>

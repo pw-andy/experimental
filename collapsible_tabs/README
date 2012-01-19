@@ -1,1 +1,4 @@
 A demonstration of a collapsible tab area that always stays visible when not collapsed. The tabs and counts should remain visible in a status bar-like area with a behavior to expand the section if clicked upon.
+
+example1/
+	Contains a very basic demo of a minimizable tab section within a reasonable approximation of our page layout. There are still some issues regarding how the page/content stretches when minimizing and (particularly) maximizing.
