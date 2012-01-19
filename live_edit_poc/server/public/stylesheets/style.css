@@ -1,0 +1,25 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.section {
+    width: 300px;
+    margin: 10px 10px 10px 10px;
+    padding: 10px;
+    border: solid 1px black;
+
+    line-height: 23px;
+}
+
+.liveForm .live {
+    border-bottom: dashed 1px #00f;
+}
+
+.liveForm .live-hover {
+    background-color: #ffd;
+}
