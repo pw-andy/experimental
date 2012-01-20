@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Image loading test</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='jquery.fileupload-ui.css')}}" />
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='jquery-ui-1.8.7.custom.css')}}" />
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='images.css')}}" />
+    </head>
+    <body>
+
+        <div id="media" class="detailContentSection" style="position: relative">
+            <div id="fileupload">
+                <ul class="files"></ul>
+                <div style="clear: both"></div>
+                <br />
+                <div class="fileupload-progressbar"></div>
+                <div class="fileupload-buttonbar secondaryButtons">
+                    <label class="fileinput-button" style="overflow: hidden;">
+                        <span>Add files...</span>
+                        <input type="file" name="files[]" multiple>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div id="backbone"></div>
+
+        {% raw %}
+
+        <script id="template-upload" type="text/x-jquery-tmpl">
+            <li class="template-upload">
+                <div class="dragHandle"></div>
+                <div class="preview"></div>
+                <div class="name"><span id="description_${id}">${name}</span></div>
+                <div class="start"><button>Start</button></div>
+            </li>
+        </script>
+
+        <script id="template-download" type="text/x-jquery-tmpl">
+            <li id="file_${id}" class="template-download">
+            </li>
+        </script>
+
+        <script id="template-download-content" type="text/x-jquery-tmpl">
+            <div class='dragHandle'></div>
+            <div class='preview'>
+                {{if thumbnail_url}}
+                <a class="imageLink" href='${url}' rel='gallery'><img src='${thumbnail_url}' /></a>
+                {{else}}
+                <img src='${thumbnail_url}' />
+                {{/if}}
+            </div>
+            <div class='name'>
+                <span id="description_${id}">${name}</span>
+                <input type='hidden' class='imageOrderIndex' name='imageOrderIndex(${id})' id='imageOrderIndex_${id}' value='${orderIndex}' size='3' />
+            </div>
+
+            <div class='delete'>
+                <a class="ui-icon ui-icon-trash" style="cursor: pointer" onclick="deleteImage(${id});">Delete</a>
+            </div>
+        </script>
+
+        {% endraw %}
+
+        <!-- Taken from current versions being used in marketing -->
+        <script src="{{url_for('static', filename='vendor/json2.min.js')}}"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
+        <script src="{{url_for('static', filename='vendor/underscore.min.js')}}"></script>
+        <script src="{{url_for('static', filename='vendor/backbone.min.js')}}"></script>
+        <script src="{{url_for('static', filename='vendor/plugins.js')}}"></script>
+        <!--<script src=""></script>-->
+
+        <script src="{{url_for('static', filename='jquery.livequery.js')}}"></script>
+        
+        <!-- fileupload -->
+        <script src="{{url_for('static', filename='jquery.iframe-transport.js')}}"></script>
+        <script src="{{url_for('static', filename='jquery.fileupload.js')}}"></script>
+        <script src="{{url_for('static', filename='jquery.fileupload-ui.js')}}"></script>
+        <script src="{{url_for('static', filename='jquery.fileupload-ui.js')}}"></script>
+
+        <script src="{{url_for('static', filename='images.js')}}" type="text/javascript"></script>
+    </body>
+</html>

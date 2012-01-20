@@ -1,0 +1,17 @@
+Expanded example of interaction between the fileupload component and Backbone.js
+
+Requires python and Flask:
+1) Install python 2.7.x (http://python.org/download/)
+2) Install setuptools (http://pypi.python.org/pypi/setuptools)
+3) Run
+	$ easy_install flask
+
+To start the server:
+$ python server.py
+
+NOTES:
+There doesn't appear to be any simple way to get fileupoad to upload images via backbone. Instead, the fileupload component communicates directly with the server when uploading, but updates the backbone model appropriately once the images have been uploaded.
+
+Additionally, the initial load of the images is handled by backbone which then passes the image data to fileupload. Any changes to the images can be handled through backbone; I've implemented deletion and renaming as examples. The actual image content displayed in the fileupload container is also implemented as a backbone view so it correctly updates to reflect any changes made to the model.
+
+-Image uploading is faked (images aren't actually uploaded), but it's sufficient to demonstrate the point
