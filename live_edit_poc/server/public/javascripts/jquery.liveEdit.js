@@ -1,4 +1,10 @@
-(function($) {
+(function (factory) {
+    if(typeof define === 'function' && define.amd) {
+        define(['jQuery', 'Underscore', 'Backbone'], factory);
+    } else {
+        factory(jQuery, _, Backbone);
+    }
+}(function($, _, Backbone) {
     $.fn.liveEdit = function() {
         var LIVE_EDITOR_PROPS = "liveEditPropetiesKey"
         ,   EditorTypes = {textbox:0, list:1}
@@ -291,4 +297,4 @@
             })
     }
     
-})(jQuery);
+}));

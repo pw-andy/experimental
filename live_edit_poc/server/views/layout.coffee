@@ -5,12 +5,10 @@ html ->
 
         link rel:'stylesheet', href: '/stylesheets/style.css'
 
-        script src: '/javascripts/jquery-1.7.1.min.js'
-        script src: '/javascripts/json2.js'
-        script src: '/javascripts/jquery.liveEdit.js'
+        script data: {main: 'javascripts/main.js'}, src: 'javascripts/require.js'
 
-        coffeescript ->
-            $ ->
-                $('.liveForm').liveEdit()
+        #coffeescript ->
+        #    $ ->
+        #        $('.liveForm').liveEdit()
     body ->
         @body
