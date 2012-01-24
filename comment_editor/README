@@ -1,0 +1,8 @@
+A demo of what the comment (line item comments, not conversations) editing ui might look like.
+
+All the interesting code is in jquery.commentEdit.js (implemented as a jQuery plugin).
+
+A few notes:
+- Code is messy and has several bugs; it was written fast to try out new things
+- Integration with Andy's liveEdit stuff would be good, but is going to get complicated quickly.
+- Depending on how fancy our behaviour gets, the comment editing itself could be pretty complicated.
