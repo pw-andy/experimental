@@ -7,14 +7,18 @@ a {
   color: #00B7FF;
 }
 
-.section {
-    width: 300px;
-    margin: 10px 10px 10px 10px;
-    padding: 10px;
-    border: solid 1px black;
-
-    line-height: 23px;
+ul {
+  list-style: none;
 }
+
+.section table th {
+  text-align: left;
+}
+
+.sectionItem {
+  font-weight: bold;
+}
+
 
 .liveForm .live {
     border-bottom: dashed 1px #00f;
@@ -22,4 +26,8 @@ a {
 
 .liveForm .live-hover {
     background-color: #ffd;
+}
+
+.live-editor {
+  height: 10px;
 }

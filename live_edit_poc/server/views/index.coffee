@@ -1,43 +1,74 @@
 h1 @title
 
-div class: 'liveForm section', ->
-    div ->
+div id:'inspectionContainer', class: 'liveForm'
+
+script id:'inspection-view-template', type:'text/x-handlebars-template', ->
+    div class: 'generalInformation, liveForm', ->
+        h1 'General Information'
+        text '{{#generalInformation}}'
         table ->
             tr ->
-                td ->
-                    span class:'live', -> 'John'
-                td ->
-                    span class:'live', -> 'Q'
-                td ->
-                    span class:'live', -> 'Doe'
+                td 'Location:'
+                td '{{location}}'
 
-    div ->
-        span class:'live', -> '123 Test Street'
-
-    div ->
+            tr ->
+                td ''
+                td '{{addressLine1}}'
+            tr ->
+                td ''
+                td '{{addressLine2}}'
+            tr ->
+                td ''
+                td ->
+                    table ->
+                        tr ->
+                            td -> '{{city}}'
+                            td -> '{{state}}'
+                            td -> '{{zip}}'
+        text '{{/generalInformation}}'
+    div class: 'contactInformation liveForm', ->
+        h1 'Contact Information'
+        text '{{#contactInformation}}'
         table ->
             tr ->
+                td 'Name:'
                 td ->
-                    span class:'live', -> 'Mason'
-                td ->
-                    span class:'live', -> 'OH'
-                td ->
-                    span class:'live', -> '45040'
+                    table ->
+                        tr ->
+                            td -> '{{firstName}}'
+                            td -> '{{lastName}}'
 
-    div ->
-        span class:'live', data: {editor: 'list', elements: "[{'k':'0', 'v':'Zero'}, {'k':'1', 'v':'One'}, {'k':'2', 'v':'Two'}]" }, -> 'Other Info 1'
+            tr ->
+                td 'Email:'
+                td -> '{{email}}'
+            tr ->
+                td 'Phone:'
+                td -> '{{phone}}'
+            tr ->
+                td 'Lease'
+                td -> '{{lease}}'
+        text '{{/contactInformation}}'
+    div class: 'sections', ->
+        ul ->
+            text '{{#sections}}'
+            text '  {{> sectionTemplate}}'
+            text '{{/sections}}'
 
-    div ->
-        span class:'live', -> 'Other Info 2'
+script id:'inspection-section-template', type: 'text/x-handlebars-template', ->
+    li class: 'section', ->
+        h2 '{{title}}'
+        hr()
+        table ->
+            thead ->
+                tr ->
+                    th width: 200, ''
+                    th 'Status'
+            tbody ->
+                text '{{#items}}'
+                text '  {{> itemTemplate}}'
+                text '{{/items}}'
 
-    div ->
-        span class:'live', -> 'Other Info 3'
-
-    div ->
-        span class:'live', -> 'Other Info 4'
-
-div class: 'liveForm section', ->
-    div ->
-        span class: 'live', -> 'More Info Down Here'
-    div ->
-        span class: 'live', -> 'Meeeeee toooooo'
+script id:'inspection-item-template', type: 'text/x-handlebars-template', ->
+    tr ->
+        td class: 'sectionItem', -> '{{title}}'
+        td -> span class: 'live', '{{status}}'

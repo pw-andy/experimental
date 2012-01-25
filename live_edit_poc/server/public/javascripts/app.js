@@ -2,14 +2,16 @@ define([
     'jQuery', 
     'Underscore', 
     'Backbone', 
-    'jquery.liveEdit'
+    'routers/InspectionRouter'
     ], 
-function($, _, Backbone) {
+function($, _, Backbone, InspectionRouter) {
 
     var initialize = function() {
-        $(function() {
-            $('.liveForm').liveEdit();
-        })
+        InspectionRouter.initialize();
+
+        //$(function() {
+        //    $('.liveForm').liveEdit();
+        //})
     }
 
     return {
