@@ -1,0 +1,15 @@
+Example of live edit interface accomplished via Backbone views/models
+
+Requires python and Flask:
+1) Install python 2.7.x (http://python.org/download/)
+2) Install setuptools (http://pypi.python.org/pypi/setuptools)
+3) Run
+	$ easy_install flask
+
+To start the server:
+$ python server.py
+
+NOTES:
+-Needs some refactoring, but the basic idea should be clear
+-Doesn't have a proper idea of inspection sections yet, but that should just be another layer of similar abstraction
+-Updates to the backbone model are not handled at all yet, but that shouldn't be particularly difficult to add on

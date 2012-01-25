@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Backbone based live edit POC</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css')}}" />
+        <script data-main="{{url_for('static', filename='javascript/main.js')}}" src="{{url_for('static', filename='javascript/require.js')}}"></script> 
+    </head>
+    <body>
+        <div id="liveEditContainer"></div>
+
+        {% raw %}
+        <!-- Handlebar templates go here -->
+        <script id="inspection-section-template" type="text/x-handlebars-template">
+            <div class="section">
+                <h1>{{name}}</h1>
+                <table>
+                    <tbody>
+                        {{#each items}}
+                        <tr>
+                            {{> itemPartial}}
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </script>
+
+        <script id="inspection-item-partial" type="text/x-handlebars-template">
+            <td class="item">{{name}}</td><td><div class="item-container" id="{{id}}">{{id}}</div></td>
+        </script>
+
+        <script id="inspection-itemview-template" type="text/x-handlebars-template">
+            <span class="item-label">{{value}}</span>
+        </script>
+
+        <script id="inspection-itemedit-template" type="text/x-handlebars-template">
+            <input type='text' class='item-editor' value="{{value}}" />
+        </script>
+
+        {% endraw %}
+    </body>
+</html>
