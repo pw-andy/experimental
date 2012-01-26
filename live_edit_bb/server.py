@@ -15,6 +15,14 @@ def items():
 def item(id):
     return "fetch item " + id
 
+@app.route("/inspection")
+def section():
+    items1 = [{'id':1, 'name':'item1', 'value':'test'}, {'id':2, 'name':'item2', 'value':'test'}, {'id':3, 'name':'item3', 'value':'test'}]
+    items2 = [{'id':4, 'name':'item4', 'value':'test'}, {'id':5, 'name':'item5', 'value':'test'}, {'id':6, 'name':'item6', 'value':'test'}]
+    sections = [{'name': 'Section1', 'id':1, 'items': items1}, {'name': 'Section2', 'id':2, 'items':items2}]
+    inspection = {'id':1, 'name': 'Inspection1', 'sections':sections}
+    return json.dumps(inspection);
+
 if __name__ == '__main__':
     app.debug = True
     app.secret_key = "veryverysecret"

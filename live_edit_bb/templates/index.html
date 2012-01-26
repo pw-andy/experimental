@@ -11,6 +11,25 @@
 
         {% raw %}
         <!-- Handlebar templates go here -->
+        <script id="inspection-template" type="text/x-handlebars-template">
+            <h1>{{name}}</h1>
+            <table>
+                <tbody>
+                    {{#each sections}}
+                    <tr>
+                        {{> sectionPartial}}
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </script>
+
+        <script id="inspection-section-partial" type="text/x-handlebars-template">
+            <td class="section">
+                <div class="section-container" id="section{{id}}">{{id}}</div>
+            </td>
+        </script>
+
         <script id="inspection-section-template" type="text/x-handlebars-template">
             <div class="section">
                 <h1>{{name}}</h1>

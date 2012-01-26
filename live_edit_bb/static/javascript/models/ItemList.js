@@ -7,7 +7,7 @@ define([
     ], 
 function($, _, Backbone, Handlebars, TextFieldModel) {
     var ItemList = Backbone.Collection.extend({
-        model: TextFieldModel,
+        model: TextFieldModel,//Create text fields by default
         url: '/items'
     });
 

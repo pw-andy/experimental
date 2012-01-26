@@ -3,12 +3,17 @@ define([
     'Underscore', 
     'Backbone',
     'Handlebars',
-    'views/ItemListView'
+    'views/InspectionView',
+    'models/InspectionModel'
     ], 
-function($, _, Backbone, Handlebars, ItemListView) {
+function($, _, Backbone, Handlebars, InspectionView, InspectionModel) {
 
     var initialize = function() {
-        var itemListView = new ItemListView();
+        var inspectionModel = new InspectionModel();
+        inspectionModel.fetch({success: function(){
+            var inspectionView = new InspectionView({model: inspectionModel});
+            inspectionView.render();
+        }});
     }
 
     return {
