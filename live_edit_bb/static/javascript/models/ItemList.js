@@ -3,11 +3,11 @@ define([
     'Underscore', 
     'Backbone',
     'Handlebars',
-    'models/ItemModel'
+    'models/TextFieldModel'
     ], 
-function($, _, Backbone, Handlebars, ItemModel) {
-	var ItemList = Backbone.Collection.extend({
-        model: ItemModel,
+function($, _, Backbone, Handlebars, TextFieldModel) {
+    var ItemList = Backbone.Collection.extend({
+        model: TextFieldModel,
         url: '/items'
     });
 

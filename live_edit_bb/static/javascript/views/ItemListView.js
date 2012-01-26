@@ -4,11 +4,9 @@ define([
     'Backbone',
     'Handlebars',
     'models/ItemList',
-    'views/ItemView',
-    'views/ItemEditView'
     ], 
-function($, _, Backbone, Handlebars, ItemList, ItemView, ItemEditView) {
-	var ItemListView = Backbone.View.extend({
+function($, _, Backbone, Handlebars, ItemList) {
+    var ItemListView = Backbone.View.extend({
         KEYS: {
                 Tab: 9,
                 Esc: 27,
@@ -32,18 +30,29 @@ function($, _, Backbone, Handlebars, ItemList, ItemView, ItemEditView) {
             var tabOrder = 0;
             $(this.el).append(this.template(section));
             _(this.collection.models).each(function(item) {
-                var itemView = new ItemView({model: item});
-                var itemEditView = new ItemEditView({model: item});
-                item.viewModeView = itemView;
-                item.editModeView = itemEditView;
-                item.listController = this;
-                item.tabOrder = tabOrder;
+                item.init(tabOrder, this);
                 tabOrder++;
-                itemView.render();
             }, this);
         },
-        registerEdited: function(model) {
+        setLastEdited: function(model) {
            this.lastEdited = model; 
+        },
+        moveNext: function() {
+            var nextIndex = this.lastEdited.orderIndex + 1;
+            if (nextIndex < this.collection.length) {
+                console.log(this.collection.at(nextIndex));
+                this.collection.at(nextIndex).editFirst();
+            } else {
+                this.collection.at(0).editFirst();
+            }
+        },
+        movePrevious: function() {
+           var prevIndex = this.lastEdited.orderIndex - 1;
+            if (lastIndex >= 0) {
+                this.collection.at(prevIndex).editLast();
+            } else {
+                this.collection.at(this.collection.length - 1).editLast();
+            } 
         },
         nextItem: function() {
             console.log('ItemListView.nextItem');

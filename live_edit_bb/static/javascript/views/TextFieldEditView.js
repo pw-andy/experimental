@@ -2,52 +2,46 @@ define([
     'jQuery', 
     'Underscore', 
     'Backbone',
-    'Handlebars'
+    'Handlebars',
+    'libs/keys'
     ], 
-function($, _, Backbone, Handlebars) {
-	var ItemEditView = Backbone.View.extend({
+function($, _, Backbone, Handlebars, KEYS) {
+    var TextFieldEditView = Backbone.View.extend({
         tagName: 'div',
-        template: Handlebars.compile($('#inspection-itemedit-template').html()),
+        template: Handlebars.compile($('#inspection-textfield-edit-template').html()),
         events: {
             'keydown input.item-editor': 'keyhandler',
             'blur input.item-editor': 'blurhandler'
         },
         initialize: function() {
-            //init
-            this.containerId = '#' + this.model.id;
+            this.containerId = '#text' + this.model.id;
         },
         render: function() {
-            console.log('ItemEditView.render:' + this.model.id);
             $(this.containerId).html($(this.el).html(this.template(this.model.toJSON())));
-            $('input.item-editor', this.el).delay(100).focus();
-
+            $('input.item-editor', this.el).focus();
         },
         unrender: function() {
-            console.log('ItemEditView.unrender:' + this.model.id);
             // Use detach to retain event bindings
             $(this.el).detach();
         },
         blurhandler: function(event) {
-            console.log('ItemEditView.blurhandler');
             if (!this.model.inEditMode) return;
             this.model.switchToView();
         },
         keyhandler: function(event) {
-            console.log("keyhandler: " + event.which);
-            var controller = this.model.listController;
+            console.log("TextFieldEditView.keyhandler: " + event.which);
             switch(event.which) {
-                case controller.KEYS.Tab:
-                    this.model.switchToView();
-                    controller.nextItem();
+                case KEYS.Tab:
+                    this.model.moveNext();
                     return false;
                 break;
 
-                case controller.KEYS.Esc:
+                case KEYS.Esc:
                     this.model.switchToView();
                 break;
             }
         }
     });
 
-    return ItemEditView;
+    return TextFieldEditView;
 });

@@ -4,12 +4,16 @@ Requires python and Flask:
 1) Install python 2.7.x (http://python.org/download/)
 2) Install setuptools (http://pypi.python.org/pypi/setuptools)
 3) Run
-	$ easy_install flask
+    $ easy_install flask
 
 To start the server:
 $ python server.py
 
 NOTES:
--Needs some refactoring, but the basic idea should be clear
--Doesn't have a proper idea of inspection sections yet, but that should just be another layer of similar abstraction
+-The current model for live editable items is as follows:
+    * BaseLiveEditModel.js is a base class that should be extended with a model class for each editable type (text, list, comment editor, etc)
+    * Each subclass should provide two views, one for display and one for editing
+    * The views should bind to events like clicking, blurring, and tabbing and call the appropriate methods on the model (switchToEdit, switchToView, moveNext, movePrevious)
+    * When creating an instance of a model, be sure to call .init()
+-The base classes (BaseLiveEditControllerView.js, BaseLiveEditModel.js) allow describing a heirarchy of editable sections/items. For example, Inspection -> Section -> Editable field. Setting up the chain correctly should allow moving between editing items to work both within and across sections.
 -Updates to the backbone model are not handled at all yet, but that shouldn't be particularly difficult to add on
