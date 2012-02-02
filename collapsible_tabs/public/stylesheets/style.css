@@ -1,0 +1,48 @@
+html {
+}
+
+body {
+	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+	color: #00B7FF;
+}
+
+.tab1 {
+	background-color: red;
+}
+
+.tab2 {
+	background-color: blue;
+}
+
+.tab3 {
+	background-color: green;
+}
+
+.page_container {
+	background-color: purple;
+}
+
+.top_container {
+}
+
+.scrollable_top {
+	background-color: yellow;
+	overflow: auto;
+}
+
+.bottom_container {
+	opacity:0.8;
+  	filter:alpha(opacity=80); /* For IE8 and earlier */
+	position: fixed;
+	left: 0;
+  	bottom: 0;
+  	width: 100%;
+  	background-color: lightblue;
+}
+
+.header {
+	background-color: purple;
+}

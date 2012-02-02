@@ -1,0 +1,18 @@
+!!!
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/jquery.jscrollpane.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+
+    script(type='text/javascript', src='/javascripts/jquery-1.7.1.min.js')    
+    script(type='text/javascript', src='/javascripts/jquery.jscrollpane.js')
+    script(type='text/javascript', src='/javascripts/jquery.mousewheel.js')
+    script(type='text/javascript', src='/javascripts/mwheelIntent.js')
+    script(type='text/javascript', src='/javascripts/collapse.js')
+
+    |<script>
+    |	$(function(){ $('#bottom_container').makeCollapsable(); })
+    |	$(function(){ $('#scrollable_top').jScrollPane(); })
+    |</script>
+  body!= body
